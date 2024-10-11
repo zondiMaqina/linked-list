@@ -103,9 +103,10 @@ class LinkedList
       string += "nil"
     end
   end
-
-  def 
 end
 
 list = LinkedList.new
-p list.to_s
+list.append("one")
+list.append("two")
+list.append("three")
+p list
