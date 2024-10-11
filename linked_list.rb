@@ -33,12 +33,8 @@ class LinkedList
     if is_empty?
       @head = new_node
     else
-      current_node = @head
-      while current_node.next != nil
-        current_node = current_node.next_node
-      end
-      current_node.next_node = new_node
-      @head
+      new_node.next_node = @head
+      @head = new_node
     end
   end
 
@@ -53,10 +49,50 @@ class LinkedList
      current_node
     end
   end
+
+  def head
+    if is_empty?
+      nil
+    else
+      current_node = @head
+      current_node.next_node = nil
+      current_node
+    end
+  end
+
+  def size
+    if is_empty?
+      0
+    else
+      count = 0
+      current_node = @head
+      while current_node != nil
+        count += 1
+        current_node = current_node.next_node
+      end
+      count
+    end
+  end
+
+  def at(index)
+    if is_empty?
+      "List is empty"
+    elsif index > size - 1 || index < 0
+      "index does not exist in list"
+    else
+      count = 0
+      current_node = @head
+      while count != index
+        count += 1
+        current_node = current_node.next_node
+      end
+      current_node
+    end
+  end
 end
 
 list = LinkedList.new
 list.append("one")
 list.append("two")
 list.append("three")
-p list.tail
+p list.at(1).data
