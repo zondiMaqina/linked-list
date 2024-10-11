@@ -103,10 +103,30 @@ class LinkedList
       string += "nil"
     end
   end
+
+  def pop
+  return nil if @head.nil?  # Return nil if the list is empty
+
+  if @head.next_node.nil?  # If there's only one node
+    popped_node = @head
+    @head = nil
+    return popped_node
+  end
+
+  current = @head
+  while current.next_node && current.next_node.next_node
+    current = current.next_node
+  end
+
+  popped_node = current.next_node
+  current.next_node = nil
+  popped_node
+  end
 end
 
 list = LinkedList.new
 list.append("one")
 list.append("two")
 list.append("three")
+p list.pop
 p list
