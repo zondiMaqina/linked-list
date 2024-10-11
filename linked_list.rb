@@ -89,10 +89,23 @@ class LinkedList
       current_node
     end
   end
+
+  def to_s
+    if is_empty?
+      return nil
+    else
+      string = ''
+      current_node = @head
+      while current_node != nil
+        string += "( #{current_node.data} ) -> "
+        current_node = current_node.next_node
+      end
+      string += "nil"
+    end
+  end
+
+  def 
 end
 
 list = LinkedList.new
-list.append("one")
-list.append("two")
-list.append("three")
-p list.at(1).data
+p list.to_s
