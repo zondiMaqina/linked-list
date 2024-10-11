@@ -1,3 +1,7 @@
-modules = ["bun-1.1"]
+modules = ["ruby-3.2"]
+run = "ruby linked_list.rb"
 [nix]
 channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "ruby linked_list.rb"]
