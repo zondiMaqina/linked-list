@@ -122,11 +122,22 @@ class LinkedList
   current.next_node = nil
   popped_node
   end
+
+  def find(value)
+    return nil if is_empty?
+    current_node = @head
+    index = 0
+    until current_node.data == value || current_node.next_node.nil?
+      current_node = current_node.next_node
+      index += 1
+    end
+    return index if current_node.data == value
+    nil
+  end
 end
 
 list = LinkedList.new
 list.append("one")
 list.append("two")
 list.append("three")
-p list.pop
-p list
+p list.to_s
