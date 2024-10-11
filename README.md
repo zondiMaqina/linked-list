@@ -1,5 +1,5 @@
 # Linked List
-- It is a dynamic data strcuture similar to an array **but** each element (node) is links to the next like a chain DS.
+It is a dynamic data strcuture similar to an array **but** each element (node) is links to the next like a chain DS.
 - To initialize this we need:
 
 1. ## Linked List class
